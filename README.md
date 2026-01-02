@@ -17,11 +17,15 @@ Aynı işlevselliği iki farklı dilde geliştirerek aralarındaki mimari farkla
 | **Silme Mantığı** | Manuel Pointer manipülasyonu | `std::remove_if` (Lambda Expression) |
 
 ---
-Kriter,C (Legacy),C++ (Modern),Analiz Notu
-Hız (10k Kayıt),~0.0016 sn,~0.0036 sn,"C, saf işaretçi kullanımıyla hafif önde."
-Bellek Yönetimi,Manuel (malloc/free),Otomatik (RAII / Vector),C++ bellek sızıntılarını (leak) %100 engeller.
-Kod Karmaşıklığı,Yüksek (Bağlı Liste),Düşük (Kütüphane Desteği),C++ kodunun bakımı ve geliştirilmesi çok daha kolay.
-Veri Güvenliği,Yok (Çökme riski),Var (Try-Catch / Validation),C++ versiyonu hatalı girişlerde sistemi ayakta tutar.
+Bu proje, bir "Legacy" (eski) sistemin modern yazılım mimarisine göç sürecini ve sonuçlarını kapsar.
+
+    Hız ve Performans: 10.000 kayıt testinde C versiyonu 0.0016 sn, C++ versiyonu ise 0.0036 sn sonuç vermiştir. Aradaki fark mikrosaniye düzeyinde olup, C++'ın sunduğu mimari avantajlar için kabul edilebilir bir maliyettir.
+
+    Bellek Güvenliği: Manuel bellek yönetimi (C) yerine otomatik bellek yönetimine (C++ RAII/Vector) geçilerek bellek sızıntıları ve çökme riskleri tamamen ortadan kaldırılmıştır.
+
+    Sürdürülebilirlik: Karmaşık işaretçi (pointer) operasyonları yerini standart kütüphane fonksiyonlarına bırakmış, kodun okunabilirliği ve geliştirilme hızı artırılmıştır.
+
+    Hata Yönetimi: Eski sistemdeki çökme riskine karşın, yeni sisteme eklenen Try-Catch blokları ve Input Validation ile yazılımın çalışma kararlılığı (robustness) en üst seviyeye çıkarılmıştır.
 ---
 
 ##  Klasör Yapısı
