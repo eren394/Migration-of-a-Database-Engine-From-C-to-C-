@@ -4,7 +4,19 @@
 #include <fstream>
 #include <algorithm>
 #include <iomanip>
+#include <chrono> 
 
+void performansTesti() {
+    auto baslangic = std::chrono::high_resolution_clock::now();
+
+    for(int i = 0; i < 10000; i++) {
+    }
+
+    auto bitis = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> sure = bitis - baslangic;
+    
+    std::cout << "10.000 Kayit Islemi Suresi: " << sure.count() << " saniye." << std::endl;
+}
 using namespace std;
 
 // 1. Ürün Nesnesi Tanımı
@@ -33,7 +45,27 @@ private:
     float toplamKar = 0;
 
 public:
-    // Hata Yönetimi: Güvenli sayı alma fonksiyonu
+
+    void performansTesti() {
+    cout << ">> 10.000 veri uzerinde performans testi baslatiliyor..." << endl;
+    
+    auto yedekListe = urunler;
+    urunler.clear();
+
+    auto baslangic = chrono::high_resolution_clock::now();
+
+    for (int i = 0; i < 10000; i++) {
+        urunler.push_back(Urun(i, "TestUrun", 100.0, 80.0, 10));
+    }
+
+    auto bitis = chrono::high_resolution_clock::now();
+    chrono::duration<double> sure = bitis - baslangic;
+
+    cout << ">> ISLEM TAMAMLANDI <<" << endl;
+    cout << ">> 10.000 urun ekleme suresi: " << fixed << setprecision(6) << sure.count() << " saniye." << endl;
+
+    urunler = yedekListe;
+}
     float sayiAl(string mesaj) {
         string input;
         float deger;
@@ -189,6 +221,9 @@ int main() {
             db.kaydet();
             cout << "Veriler kaydedildi. Gorusmek uzere!" << endl;
         }
+        else if (secim == 9) {
+    db.performansTesti();
+}
         else cout << "!! Gecersiz secim." << endl;
 
     } while (secim != 8);

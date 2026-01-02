@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 typedef struct Urun {
     int id;
@@ -11,6 +12,19 @@ typedef struct Urun {
 
 Urun *head = NULL;
 
+#include <time.h>
+
+void c_performans_testi() {
+    clock_t start = clock();
+    
+    for(int i = 0; i < 10000; i++) {
+        urunEkle(i, "Test", 10.0);
+    }
+    
+    clock_t end = clock();
+    double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("C Bagli Liste 10.000 kayit suresi: %f saniye\n", cpu_time_used);
+}
 
 void urunEkle(int id, char *ad, float fiyat) {
     Urun *kontrol = head;
