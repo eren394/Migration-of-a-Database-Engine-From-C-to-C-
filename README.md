@@ -17,6 +17,12 @@ Aynı işlevselliği iki farklı dilde geliştirerek aralarındaki mimari farkla
 | **Silme Mantığı** | Manuel Pointer manipülasyonu | `std::remove_if` (Lambda Expression) |
 
 ---
+Kriter,C (Legacy),C++ (Modern),Analiz Notu
+Hız (10k Kayıt),~0.0016 sn,~0.0036 sn,"C, saf işaretçi kullanımıyla hafif önde."
+Bellek Yönetimi,Manuel (malloc/free),Otomatik (RAII / Vector),C++ bellek sızıntılarını (leak) %100 engeller.
+Kod Karmaşıklığı,Yüksek (Bağlı Liste),Düşük (Kütüphane Desteği),C++ kodunun bakımı ve geliştirilmesi çok daha kolay.
+Veri Güvenliği,Yok (Çökme riski),Var (Try-Catch / Validation),C++ versiyonu hatalı girişlerde sistemi ayakta tutar.
+---
 
 ##  Klasör Yapısı
 
